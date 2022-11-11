@@ -1,0 +1,9 @@
+---
+- name: copy file to server2
+  hosts: 172.31.92.169
+  tasks: 
+    - name: copy file
+      copy: 
+        src: /tmp/172.31.82.185//file1
+        dest: /tmp
+    

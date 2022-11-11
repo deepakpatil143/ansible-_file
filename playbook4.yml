@@ -1,0 +1,10 @@
+---
+- name: fetch the file from server1
+  hosts: 172.31.82.185
+  tasks: 
+     - name: fetch file
+       fetch:
+         src: file1
+         dest: /tmp
+     
+...

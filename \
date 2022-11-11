@@ -1,0 +1,17 @@
+---
+- name: Error handling
+  hosts: all
+  tasks: 
+    - block:
+        - name Install tree using apt
+          apt:
+            name: tree
+            state: present
+            update_cache: yes
+      rescue: 
+        - name: install tree using yum
+          yum: 
+             name: tree
+             state: present
+             update_cache: yes
+...
