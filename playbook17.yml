@@ -1,5 +1,5 @@
 ---
-- name: Error handling
+- name: Error Handling
   hosts: all
   tasks: 
     - block:
@@ -8,10 +8,15 @@
             name: tree
             state: present
             update_cache: yes
-      rescue: 
-        - name: install tree using yum
-          yum: 
-             name: tree
-             state: present
-             update_cache: yes
+      rescue:
+        - name: Install tre using yum
+          yum:
+            name: tree
+            state: present
+            update_cache: yes
+      always: 
+         - name: Display success info
+           debug:
+             msg: "tree installation successfull"
+
 ...
